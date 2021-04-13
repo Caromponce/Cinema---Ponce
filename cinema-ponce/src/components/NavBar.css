@@ -1,0 +1,19 @@
+.navBar {
+    background: blueviolet;
+    box-shadow: 2px 2px 4px #a2a2a2;
+}
+
+.brand {
+    font-size: 2rem;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    padding-left: 1.3rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-size: 1.4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
