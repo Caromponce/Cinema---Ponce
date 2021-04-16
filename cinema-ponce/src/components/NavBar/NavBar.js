@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from './resNavBar/claqueta-8.png';
 import './NavBar.css';
+import CartWidget from './cartWidget/CartWidget';
 import { Navbar, Nav } from 'react-bootstrap';
+
 
 export default function NavBar() {
     return (
@@ -21,6 +23,7 @@ export default function NavBar() {
                     <Nav.Link href="#features">Próximos Estrenos</Nav.Link>
                     <Nav.Link href="#pricing">Salas</Nav.Link>
                 </Nav>
+                <CartWidget />
             </Navbar>
         </>
     )
