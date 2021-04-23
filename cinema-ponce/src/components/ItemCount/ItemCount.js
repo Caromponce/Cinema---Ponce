@@ -31,12 +31,3 @@ export default function ItemCount({ stock, initial, onAdd }) {
         </div>
     )
 }
-// export default function Counter({increment, decrement}) {
-
-//     return (
-//         <div>
-//             <button onClick={increment}>Incrementar</button>
-//             <button onclick={decrement}>Decrementar</button>
-//         </div>
-//     )
-// }
