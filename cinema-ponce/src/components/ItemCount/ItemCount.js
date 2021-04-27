@@ -26,8 +26,6 @@ export default function ItemCount({ stock, initial, onAdd }) {
         }
     }
 
-
-
     return (
         <div>
             {sinStock ?
@@ -39,7 +37,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
                     <button onClick={onDecrement}>-</button>
                     <input type="number" value={cantidad} />
                     <button onClick={onIncrement} disabled={cantidad === stock ? "disabled" : ''}>+</button><br />
-                    <button onClick={verificarStock}>Agregar Película</button>
+                    <button onClick={verificarStock} disabled={cantidad === 0 ? "disabled" : ''}>Agregar Película</button>
                     {cantidad === stock ?
                         <div>
                             <p>No hay más stock</p>

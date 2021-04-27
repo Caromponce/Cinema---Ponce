@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 
 export default function ItemListContainer(props) {
+    const [productos, setProductos] = useState([]);
+    const urlDataJson = "bdd.json";
+
+    useEffect(() => {
+        setTimeout(() => {
+            fetch(urlDataJson)
+                .then((response) => response.json())
+                .then((data) => setProductos(data));
+        }, 2000);
+    }, []);
 
     return (
-        <ul>
-            {props.json.map(element =>
-                <ItemList
-                    key={element.id}
-                    imagenPelicula={element.imagenPelicula}
-                    nombrePelicula={element.nombrePelicula}
-                    descripcionPelicula={element.descripcionPelicula}
-                    price={element.price}
-                    stock={element.stock}
-                />
-            )}
-        </ul>
+        <ItemList productosJson={productos} />
     )
 }
 

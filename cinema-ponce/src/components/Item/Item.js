@@ -1,28 +1,28 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
+import './Item.css';
 
 export default function Item(props) {
 
     function onAdd(cantidadElegida) {
-        alert(`Película ${props.datos.nombrePelicula} agregada al carrito. Cantidad: ${cantidadElegida}.`)
+        alert(`Película ${props.datosProducto.nombrePelicula} agregada al carrito. Cantidad: ${cantidadElegida}.`)
     }
     return (
-        <>
+        <li>
             <Card className="cardPelicula" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={props.datos.imagenPelicula} />
+                <Card.Img variant="top" src={props.datosProducto.imagenPelicula} />
                 <Card.Body>
-                    <Card.Title>{props.datos.nombrePelicula}</Card.Title>
+                    <Card.Title>{props.datosProducto.nombrePelicula}</Card.Title>
                     <Card.Text>
-                        {props.datos.descripcionPelicula}
+                        {props.datosProducto.descripcionPelicula}
                     </Card.Text>
                     <Card.Text>
-                        Precio: ${props.datos.price}
+                        Precio: ${props.datosProducto.price}
                     </Card.Text>
-                    <ItemCount stock={props.datos.stock} initial="0" onAdd={onAdd} />
+                    <ItemCount stock={props.datosProducto.stock} initial="0" onAdd={onAdd} />
                 </Card.Body>
             </Card>
-            <Button variant="warning" onClick={props.returnList}>Volver</Button>
-        </>
+        </li>
     );
 }
