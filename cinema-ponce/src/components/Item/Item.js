@@ -6,21 +6,18 @@ import './Item.css';
 export default function Item(props) {
 
     function onAdd(cantidadElegida) {
-        alert(`Película ${props.datosProducto.nombrePelicula} agregada al carrito. Cantidad: ${cantidadElegida}.`)
+        alert(`Producto ${props.datosProducto.nombreProducto} agregado al carrito. Cantidad: ${cantidadElegida}.`)
     }
     return (
         <li>
-            <Card className="cardPelicula" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={props.datosProducto.imagenPelicula} />
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={props.datosProducto.imagenProducto} />
                 <Card.Body>
-                    <Card.Title>{props.datosProducto.nombrePelicula}</Card.Title>
-                    <Card.Text>
-                        {props.datosProducto.descripcionPelicula}
-                    </Card.Text>
+                    <Card.Title>{props.datosProducto.nombreProducto}</Card.Title>
                     <Card.Text>
                         Precio: ${props.datosProducto.price}
                     </Card.Text>
-                    <ItemCount stock={props.datosProducto.stock} initial="0" onAdd={onAdd} />
+                    <ItemCount stock={props.datosProducto.stock} initial="0" onAdd={onAdd} id={props.datosProducto.id} />
                 </Card.Body>
             </Card>
         </li>

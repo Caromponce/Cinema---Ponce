@@ -17,11 +17,10 @@ export default function NavBar() {
                         className="d-inline-block align-top"
                         alt="cinema logo"
                     />
-                    Cinema</Navbar.Brand>
+                    Cinema Store</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Películas</Nav.Link>
-                    <Nav.Link href="#features">Próximos Estrenos</Nav.Link>
-                    <Nav.Link href="#pricing">Salas</Nav.Link>
+                    <Nav.Link href="#home">Ofertas</Nav.Link>
+                    <Nav.Link href="#pricing">Contacto</Nav.Link>
                 </Nav>
                 <CartWidget />
             </Navbar>
