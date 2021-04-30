@@ -3,24 +3,27 @@ import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import ItemDetailNoModal from '../../components/ItemDetailNoModal/ItemDetailNoModal';
 
 export default function ItemDetailContainer(props) {
-    const [oneItem, setOneItem] = useState([]);
+    const [oneItem, setOneItem] = useState('');
     const urlDataJson = "https://my-json-server.typicode.com/caromponce/Cinema---Ponce/productos";
     const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
-            fetch(urlDataJson)
-                .then((response) => response.json())
-                .then((data) => {
-                    setOneItem(data.find(item => item.id === props.id));
-                    setModalShow(props.modal);
-                })
-        }, 2000);
-    }, []);
+        if (oneItem === '') {
+            setTimeout(() => {
+                fetch(urlDataJson)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        setOneItem(data.find(item => item.id === Number(props.id)));
+                        setModalShow(props.modal);
+                    })
+            }, 2000);
+        }
+    }, [oneItem]);
 
     return (
-        (oneItem !== [] && modalShow ?
-            <ItemDetail detalles={oneItem} show={modalShow} onHide={() => props.accionModal(false)} />
-            : <ItemDetailNoModal detalles={oneItem} />)
+        (oneItem === '' ?
+            <p>Cargando...</p>
+            : (modalShow ? <ItemDetail detalles={oneItem} show={modalShow} onHide={() => props.accionModal(false)} />
+                : <ItemDetailNoModal detalles={oneItem} />))
     );
 }
