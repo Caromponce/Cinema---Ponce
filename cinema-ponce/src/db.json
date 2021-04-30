@@ -1,0 +1,40 @@
+{
+  "productos":[
+    {
+      "id": 1,
+      "stock": 5,
+      "price": 750,
+      "categoriaNombre":"remera",
+      "imagenProducto": "./imagesPortadas/remeraDetectivePikachu.jpg",
+      "nombreProducto": "Remera Detective Pikachu",
+      "descripcionProducto": "Remera 100% algodón color negro."
+    },
+    {
+      "id": 2,
+      "stock": 0,
+      "price": 900,
+      "categoriaNombre":"remera",
+      "imagenProducto": "./imagesPortadas/remeraJusticeLeague2.jpg",
+      "nombreProducto": "Remera Justice League",
+      "descripcionProducto": "Remera 100% algodón color negro."
+    },
+    {
+      "id": 3,
+      "stock": 8,
+      "price": 850,
+      "categoriaNombre":"remera",
+      "imagenProducto": "./imagesPortadas/remeraMortalKombat.jpg",
+      "nombreProducto": "Remera Mortal Kombat",
+      "descripcionProducto": "Remera 100% algodón color negro."
+    },
+    {
+      "id": 4,
+      "stock": 5,
+      "price": 250,
+      "categoriaNombre":"gorra",
+      "imagenProducto": "./imagesPortadas/remeraMortalKombat.jpg",
+      "nombreProducto": "Gorra Mortal Kombat",
+      "descripcionProducto": "Gorra con visera color negro."
+    }
+  ]
+}

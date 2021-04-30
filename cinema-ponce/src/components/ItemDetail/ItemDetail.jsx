@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Image, Container, Row, Col, Button } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 
 export default function ItemDetail(props) {
@@ -20,6 +21,9 @@ export default function ItemDetail(props) {
 							<p>{props.detalles.descripcionProducto}</p>
 							<p>${props.detalles.price}</p>
 						</Col>
+					</Row>
+					<Row>
+						<NavLink to={`/producto/${props.detalles.id}`} activeClassName="categoriaActiva">Ver en Pantalla Completa</NavLink>
 					</Row>
 				</Container>
 			</Modal.Body>

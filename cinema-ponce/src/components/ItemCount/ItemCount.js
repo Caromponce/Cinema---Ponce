@@ -51,7 +51,7 @@ export default function ItemCount({ stock, initial, onAdd, id }) {
                 </div>
             }
             <button onClick={() => accionModal(true)}>Ver Más</button>
-            {createModal ? <ItemDetailContainer id={id} accionModal={accionModal} /> : null}
+            {createModal ? <ItemDetailContainer id={id} accionModal={accionModal} modal={true} /> : null}
         </div>
     )
 }

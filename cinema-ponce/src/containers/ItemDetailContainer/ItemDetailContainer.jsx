@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import ItemDetailNoModal from '../../components/ItemDetailNoModal/ItemDetailNoModal';
 
 export default function ItemDetailContainer(props) {
     const [oneItem, setOneItem] = useState([]);
-    const urlDataJson = "bdd.json";
+    const urlDataJson = "https://my-json-server.typicode.com/caromponce/Cinema---Ponce/productos";
     const [modalShow, setModalShow] = useState(false);
-
 
     useEffect(() => {
         setTimeout(() => {
@@ -13,14 +13,14 @@ export default function ItemDetailContainer(props) {
                 .then((response) => response.json())
                 .then((data) => {
                     setOneItem(data.find(item => item.id === props.id));
-                    setModalShow(true)
+                    setModalShow(props.modal);
                 })
         }, 2000);
     }, []);
 
     return (
-        (modalShow ?
+        (oneItem !== [] && modalShow ?
             <ItemDetail detalles={oneItem} show={modalShow} onHide={() => props.accionModal(false)} />
-            : null)
+            : <ItemDetailNoModal detalles={oneItem} />)
     );
 }
