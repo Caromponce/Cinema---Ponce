@@ -1,4 +1,4 @@
-[{
+{"productos":[{
     "id": 1,
     "stock": 5,
     "price": 750,
@@ -35,3 +35,4 @@
     "descripcionProducto": "Gorra con visera color negro."
   }
 ]
+}
