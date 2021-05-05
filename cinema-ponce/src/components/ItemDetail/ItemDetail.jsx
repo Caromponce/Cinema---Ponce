@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Image, Container, Row, Col, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-
+import { NavLink, Link } from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount';
 
 export default function ItemDetail(props) {
+	const [finishCompra, setFinishCompra] = useState(false);
+
+	function onAdd(cantidadElegida) {
+		console.log(`Producto ${props.detalles.nombreProducto} agregado al carrito. Cantidad: ${cantidadElegida}.`);
+		setFinishCompra(true);
+	}
 
 	return (
 		<Modal show={props.show} onHide={props.onHide} size="lg">
@@ -20,6 +26,10 @@ export default function ItemDetail(props) {
 							<p><b>{props.detalles.nombreProducto}</b></p>
 							<p>{props.detalles.descripcionProducto}</p>
 							<p>${props.detalles.price}</p>
+							{!finishCompra ?
+								<ItemCount stock={props.detalles.stock} initial="0" onAdd={onAdd} id={props.detalles.id} />
+								: <Link to={'/cart'} ><button>Termina tu compra</button></Link>
+							}
 						</Col>
 					</Row>
 					<Row>

@@ -4,9 +4,9 @@ import Home from './components/Home/Home';
 import Contacto from './components/Contacto/Contacto';
 import Categoria from './components/Categoria/Categoria';
 import Producto from './components/Producto/Producto';
+import Cart from './components/Cart/Cart';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 
 
 function App() {
@@ -22,6 +22,9 @@ function App() {
         </Route>
         <Route path="/producto/:id">
           <Producto />
+        </Route>
+        <Route exact path="/cart">
+          <Cart />
         </Route>
         <Route path="/contacto">
           <Contacto />

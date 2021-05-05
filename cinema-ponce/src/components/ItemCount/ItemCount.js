@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer';
 import './ItemCount.css';
 
-export default function ItemCount({ stock, initial, onAdd, id }) {
+export default function ItemCount({ stock, initial, onAdd }) {
     const [cantidad, setCantidad] = useState(initial);
     const [sinStock, setSinStock] = useState(stock === 0 ? true : false);
-    const [createModal, setCreateModal] = useState(false);
-
 
     function onDecrement() {
         if (Number(cantidad) - 1 >= 0) {
@@ -28,10 +25,6 @@ export default function ItemCount({ stock, initial, onAdd, id }) {
         }
     }
 
-    function accionModal(bool) {
-        setCreateModal(bool);
-    }
-
     return (
         <div>
             {sinStock ?
@@ -50,8 +43,6 @@ export default function ItemCount({ stock, initial, onAdd, id }) {
                         </div> : ''}
                 </div>
             }
-            <button onClick={() => accionModal(true)}>Ver Más</button>
-            {createModal ? <ItemDetailContainer id={id} accionModal={accionModal} modal={true} /> : null}
         </div>
     )
 }

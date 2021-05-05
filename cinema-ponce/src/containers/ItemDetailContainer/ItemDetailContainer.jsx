@@ -9,14 +9,13 @@ export default function ItemDetailContainer(props) {
 
     useEffect(() => {
         if (oneItem === '') {
-            setTimeout(() => {
-                fetch(urlDataJson)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        setOneItem(data.find(item => item.id === Number(props.id)));
-                        setModalShow(props.modal);
-                    })
-            }, 2000);
+            fetch(urlDataJson)
+                .then((response) => response.json())
+                .then((data) => {
+                    setOneItem(data.find(item => item.id === Number(props.id)));
+                    setModalShow(props.modal);
+                })
+
         }
     }, [oneItem]);
 
